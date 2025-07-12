@@ -1,4 +1,9 @@
-    {
+{
   "buildCommand": "prisma generate && next build",
-  "schedule": { "refresh-tiny": "0 */2 * * *" }
+  "crons": [
+    {
+      "path": "/api/cron/refresh-tiny",
+      "schedule": "0 */2 * * *"
+    }
+  ]
 }
