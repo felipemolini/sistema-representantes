@@ -20,3 +20,23 @@ model User {
   perfil    String                // 'master' | 'vendedor'
   createdAt DateTime @default(now())
 }
+
+model Cliente {
+  id            String   @id @default(uuid())
+  nome          String
+  cpfCnpj       String   @unique
+  telefone      String?
+  email         String?
+  limiteCredito Decimal? @db.Decimal(14,2)
+
+  createdAt     DateTime @default(now())
+}
+
+model Produto {
+  id        String  @id @default(uuid())
+  nome      String
+  codigo    String  @unique
+  preco     Decimal @db.Decimal(14,2)
+
+  createdAt DateTime @default(now())
+}
